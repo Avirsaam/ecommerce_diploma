@@ -1,0 +1,48 @@
+{% extends "base_shop.html" %}
+
+{% block title %}Вход{% endblock title %}
+
+{% block header %} {% endblock header %} 
+
+{% block content %}
+  <div class="container mt-5">
+      <div class="row justify-content-center">
+        <div class="col-md-5 my-4">
+          <div class="card">
+            <div class="card-body">
+              {% if form.errors %} <p>Неправильные имя и пароль, попробуйте еще раз</p>{% endif %}
+              {% if next %}
+                {% if user.is_authenticated %}
+                  <p>У вас нет прав для просмотра этой страницы</p>
+                {% else %}
+                  <p>Для просмотра этой страницы необходимо зарегистрировться</p>
+                {% endif %}
+              {% endif %}
+              <h3 class="card-title text-center">Авторизация</h3>
+              <form method="post" action="{% url 'login' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                  <div class="text-center pt-2"> {{ form.username.label_tag }}</div>
+                  <div class="text-center mb-2"> {{ form.username }}          </div>
+                </div>
+                <div class="form-group">                  
+                  <div class="text-center pt-2"> {{ form.password.label_tag }}</div>
+                  <div class="text-center mb-4"> {{ form.password }}          </div>
+                </div>
+                <div class="text-center mb-4">                    
+                  <button type="submit" class="btn btn-outline-dark my-2">Вход</button>
+                </div>                
+                <div class="text-center mt-3">
+                  <a class="nav-item nav-link " href="{% url 'user_registration_page' %}">Регистрация</a>
+                </div>
+                <input type="hidden" name="next" value="{{ next }}">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>    
+
+{% endblock %}
+
+{% block footer %}{% endblock footer %}

@@ -1,0 +1,47 @@
+{% extends "base_shop.html" %}
+
+{% block title %}
+    Вязка на заказ
+{% endblock title %}
+
+
+{% block header %}
+    {{ block.super }}    
+{% endblock header %}
+
+
+
+{% block content %}
+<div class="container m-auto">
+    <dir class="container align-self-left ">
+        <div class="row py-5">
+            <h4>Процесс заказа</h4>
+        </div>
+        
+        {% load static %}
+
+        <div class="row">                
+            <div class="col-3 gx-5 py-5 align-self-center">
+                <img class="card-img-top mb-5 mb-md-0" src="/static/images/aude-scarf.jpg" alt="..." />
+            </div>
+            
+            <div class="col gx-5 py-5 align-self-center">                 
+                <ul class="list-group">
+                    <li class="list-group-item">Заполнение формы заказа с указанием требований и предпочтений по дизайну, материалам, размеру и т.д.</li>
+                    <li class="list-group-item">Консультация с нашими опытными ремесленниками для уточнения деталей и внесения рекомендаций, если это необходимо.</li>
+                    <li class="list-group-item">Подробное описание процесса индивидуального проектирования и создания вещи с учетом ваших требований и пожеланий.</li>
+                    <li class="list-group-item">Обсуждение предполагаемых сроков выполнения заказа в зависимости от сложности и объема работы.</li>
+                    <li class="list-group-item">Уточнение условий заказа, включая:
+                        <ul>
+                            <li>Оплата и условия оплаты.</li>
+                            <li>Возможность изменения заказа или возврата в случае необходимости.</li>
+                            <li>Доставка и варианты доставки вещи.</li>
+                        </ul>
+                    </li>
+                    <li class="list-group-item">Предоставление контактной информации для получения дополнительной помощи или консультации.</li>
+                    <li class="list-group-item">Приглашение к размещению заказа и созданию уникальной связанной вещи, которая отвечает вашим потребностям и ожиданиям.</li>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

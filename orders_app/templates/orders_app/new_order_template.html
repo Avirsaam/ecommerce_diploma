@@ -1,0 +1,37 @@
+{% extends 'base_shop.html' %}
+
+{% block title %}
+  Оформление заказа
+{% endblock %}
+
+{% block content %}
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-5 my-4">
+        <div class="card">
+          <div class="card-body">
+            <form method="post" action="{% url 'new_order_page' %}">
+              {% csrf_token %}
+
+              {% for message in messages %}
+                <div class="alert alert-success" role="alert">{{ message }}</div>
+              {% endfor %}
+
+              {% if form.errors %}
+                <div class="alert alert-danger" role="alert">{{ form.errors }}</div>
+              {% endif %}
+              <h3 class="card-title text-center">Оформление заказа</h3>
+              <div>
+                Имя получателя: <b>{{ user }}</b>
+              </div>
+              {{ form }}
+              <div class="text-center mb-4">
+                <button type="submit" class="btn btn-outline-dark my-2">Отправить заказ</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

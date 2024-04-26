@@ -1,0 +1,39 @@
+{% extends "base_shop.html" %}
+
+{% block title %}
+    О нашем магазине
+{% endblock title %}
+
+
+{% block header %}
+    {{ block.super }}    
+{% endblock header %}
+
+
+
+{% block content %}
+<div class="container m-auto">
+    <dir class="container align-self-left ">
+                
+        {% load static %}
+
+        <div class="row">                
+            <div class="col-3 gx-5 py-5 align-self-center">
+                <img class="card-img-top mb-5 mb-md-0" src="/static/images/map.png" alt="Picture" />
+            </div>
+            
+            <div class="col gx-5 py-5 align-self-center">
+                <h3>Наш магазин находится по адресу</h3>
+                <p>Улица Станиславского, дом 123
+                    г. Ростов-на-Дону, Ростовская область
+                    344000, Россия</p>
+                    <p>Время работы:<br>
+                        Понедельник - Пятница: 9:00 - 18:00<br>
+                        Суббота: 10:00 - 15:00<br>
+                        Воскресенье: выходной</p>
+                <p>Телефон: +7-981-351-24-77895</p>
+                <p>Электронная почта: <a href="mailto:info@colored-knits.ru">info@colored-knits.ru</a></p>
+            </div>
+    </div>
+</div>
+{% endblock content %}

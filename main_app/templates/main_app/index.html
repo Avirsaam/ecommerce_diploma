@@ -1,0 +1,74 @@
+{% extends "base_shop.html" %}
+
+{% block header %}
+<header class="bg-dark py-1">
+    <div class="container px-4 px-lg-5 mb-4">
+        <div class="text-center">
+            {% load static %}
+            <div><img src="/static/images/shop_logo.jpg" class="mx-auto d-block" width="450" alt="Логотип магазина"></div>
+            <p class="lead fw-normal text-white-50 mb-0">Всё для вязания и вязаные вещи на заказ</p>
+        </div>
+    </div>
+</header>
+{% endblock header %}
+
+
+
+{% block content %}
+<div class="container">   
+        <div class="slideshow">
+                <div class="gx-5 py-5 align-self-center">
+                        {% for image in images %}                        
+                        <div class="slide">
+                                <img src="{{ image }}" alt="{{ image }}">
+                        </div>                        
+                        {% endfor %}                        
+                </div>
+        </div>              
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+    var slides = $(".slide");
+    var currentSlide = 0;
+
+    function showSlide(index) {
+        slides.hide(); 
+        slides.eq(index).fadeIn(500);
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    // Показываем первый слайд при загрузке страницы
+    showSlide(currentSlide);
+
+    // Устанавливаем интервал для автоматического переключения слайдов
+    setInterval(nextSlide, 4000); // Измените интервал по желанию (в миллисекундах)
+});
+</script>
+
+<dir class="container">
+    <div class="row">        
+        {% load static %}
+        <div class="col gx-5 py-5 align-self-center"><img class="card-img-top mb-5 mb-md-0" src="/static/images/woolfolk_sheep_2_copy.jpg" alt="..." /></div>
+        <div class='col gx-5 py-5'> 
+            <h5>Яркая Пряжа Изысканного Качества</h5>
+            Наш магазин специализируются на лучших натуральных волоконных пряжах для вязания ручной работы со всего мира. 
+            Мы предлагаем наборы и выкройки от ведущих дизайнеров вязаных изделий, 
+            таких как Каффе Фассетт, Джули Хувер, Стивен Вест, Мелани Берг, Андреа Маури и многие другие.            
+        </div>                        
+    </div>
+    <div class="row">                        
+        <div class='col gx-5 py-5'>
+            <h5>Пряжи, окрашенные вручную</h5>
+            Художественные пряжи Urth - это редкий пример пряжи, окрашенной вручную и тонированной нашими мастерами. Исключительно мериносовая шерсть,
+            кашемир или хлопок, различных, нескольких видов. Средства с каждого купленного мотка пряжи Urth, пойдут на то, чтобы сажать деревья.
+        </div>                        
+        <div class="col gx-5 py-5 align-self-center"><img class="card-img-top mb-5 mb-md-0" src="/static/images/Urth_Uneek_DK_captioned.JPG" alt="..." /></div>
+    </div>    
+</div>
+{% endblock content %}
